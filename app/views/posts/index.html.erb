@@ -1,8 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1 class="text-center text-primary">Posts</h1>
 
-<table>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+<div class="container">
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -17,17 +28,27 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
-        <td><%= post.user_id %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in?%>
+        <td><%= post.user.name %></td>
+        <% else %>
+        <td>anoymus<td>
+        <% end %>
+        <td><%= link_to 'Show', post, class: "btn btn-outline-success btn-sm" %></td>
+        <% if user_signed_in?%>
+        <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-info btn-sm" %></td>
+        <td><%= link_to 'Destroy', post,class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%if user_signed_in?%>
+<%= link_to 'New Post', new_post_path, class: "btn btn-outline-success m-5" %>
+<% end %>
+</div>
 
-<br>
 
 
-<%= link_to 'New Post', new_post_path %>
-<%= link_to 'Logout', destroy_user_session_path, method: :delete%>
+
+
+
+
