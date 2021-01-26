@@ -1,0 +1,31 @@
+<h1 class="text-center text-primary">Posts</h1>
+
+<div class="container">
+  <div class="row">
+    <%if user_signed_in?%>
+      <%= link_to 'New Post', new_post_path, class: "btn btn-outline-success m-4" %>
+    <% end %>
+  </div>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <% if user_signed_in? %>
+              <h6 class="card-subtitle text-muted">Author: <%= post.user.name %></h6>
+            <% end %>
+            <small class="text-muted">Posted: <%= time_ago_in_words(post.created_at) %></small>
+
+            <p class="card-text mt-4"><%= post.body %></p>
+
+            <%= link_to 'Show', post, class: "card-link" %>
+            <% if user_signed_in? %>
+              <%= link_to 'Edit', edit_post_path(post), class: "card-link" %>
+              <%= link_to 'Destroy', post,class: "card-link text-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -1,24 +1,84 @@
-# README
+## Members Only 
+In this project we built a clubhouse.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Inside the clubhouse, members can see who the author of a post is but, outside, they can only see the story and wonder who wrote it.
 
-Things you may want to cover:
+### Built with
 
-* Ruby version
+* Ruby on Rails
+* Bootsrap
+* Devise
+* Rubocop
+* VsCode
 
-* System dependencies
+### Getting started
 
-* Configuration
+To get started, you should first get this file in your local machine by cloning or forking this project or typing in your terminal
+ 
+```
+git clone https://github.com/Byabasaija/Members-only.git
+```
 
-* Database creation
+### Prerequisites
 
-* Database initialization
+Before you start using the applicatiob, you need to be sure that you have Ruby installed on your computer, by typing.
 
-* How to run the test suite
+```
+ruby -v
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+You should see your version ofruby.
+If it's not installed in your system, follow this [guide](https://www.ruby-lang.org/en/documentation/installation/) and it will help you to get it done.
 
-* Deployment instructions
+Then you can install rails using this command,
 
-* ...
+```
+gem install rails
+```
+And you can also check your rails version by typing in your terminal
+
+```
+rails -v
+```
+
+After that do bundle install to install all required gems and dependences
+```
+bundle install
+```
+Database migration
+
+```
+rails db:migrate
+```
+ Open the rails Server in your terminal
+ ```
+ rails s
+ ```
+Go to [localhost:3000](http://localhost:3000) in your browser
+
+You can then sign up, create posts, edit.......
+
+### Authors:
+
+ **Pascal Byabasaija**
+- Linkedin: [Pascal Byabasaija](https://www.linkedin.com/in/pascal-byabasaija/)
+- Github: [@Byabasaija](https://github.com/Byabasaija)
+- Twitter: [@byabashaijapoet](https://twitter.com/byabashaijapoet)
+
+**Dipesh Bajgain**
+- GitHub: [@dipbazz](https://github.com/dipbazz)
+- Twitter: [@dipbazz](https://twitter.com/dipbazz)
+- LinkedIn: [Dipesh Bajgain](https://www.linkedin.com/in/dipbazz/)
+
+### Acknowledment
+
+ Odin Project
+
+### Contributions 
+
+Contributions, issues and requests are welcome
+
+### Show support
+
+Give a star if you like the project
+

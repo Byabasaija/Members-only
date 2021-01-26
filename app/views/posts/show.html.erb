@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+        <h1 class="display-4"><%= @post.title %></h1>
+        <% if user_signed_in? %>
+          <h6 class="text-muted">Author: <%= @post.user.name %></h6>
+        <% end %>
+        <small class="text-muted">Posted: <%= time_ago_in_words(@post.created_at) %></small>
+        <p class="lead mt-3"><%= @post.body %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <%= link_to 'Back', posts_path, class: "btn btn-dark mb-4" %>
+    </div>
+    <div class="col-6 text-right">
+      <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-info mb-4 float-right" %>
+    </div>
+  </div>
+</div>
