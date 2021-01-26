@@ -1,54 +1,31 @@
-<p id="notice"><%= notice %></p>
-
 <h1 class="text-center text-primary">Posts</h1>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <% if user_signed_in?%>
-        <td><%= post.user.name %></td>
-        <% else %>
-        <td>anoymus<td>
-        <% end %>
-        <td><%= link_to 'Show', post, class: "btn btn-outline-success btn-sm" %></td>
-        <% if user_signed_in?%>
-        <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-info btn-sm" %></td>
-        <td><%= link_to 'Destroy', post,class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
-      </tr>
+  <div class="row">
+    <%if user_signed_in?%>
+      <%= link_to 'New Post', new_post_path, class: "btn btn-outline-success m-4" %>
     <% end %>
-  </tbody>
-</table>
-<%if user_signed_in?%>
-<%= link_to 'New Post', new_post_path, class: "btn btn-outline-success m-5" %>
-<% end %>
-</div>
+  </div>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <% if user_signed_in? %>
+              <h6 class="card-subtitle text-muted">Author: <%= post.user.name %></h6>
+            <% end %>
+            <small class="text-muted">Posted: <%= time_ago_in_words(post.created_at) %></small>
 
+            <p class="card-text mt-4"><%= post.body %></p>
 
-
-
-
-
-
+            <%= link_to 'Show', post, class: "card-link" %>
+            <% if user_signed_in? %>
+              <%= link_to 'Edit', edit_post_path(post), class: "card-link" %>
+              <%= link_to 'Destroy', post,class: "card-link text-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
