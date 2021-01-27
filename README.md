@@ -1,4 +1,4 @@
-## Members Only 
+## Members Only
 In this project we built a clubhouse.
 
 Inside the clubhouse, members can see who the author of a post is but, outside, they can only see the story and wonder who wrote it.
@@ -14,10 +14,14 @@ Inside the clubhouse, members can see who the author of a post is but, outside, 
 ### Getting started
 
 To get started, you should first get this file in your local machine by cloning or forking this project or typing in your terminal
- 
+
 ```
 git clone https://github.com/Byabasaija/Members-only.git
 ```
+
+## Live Demo
+
+[Live demo link](https://stark-refuge-03764.herokuapp.com/)
 
 ### Prerequisites
 
@@ -74,7 +78,7 @@ You can then sign up, create posts, edit.......
 
  Odin Project
 
-### Contributions 
+### Contributions
 
 Contributions, issues and requests are welcome
 
