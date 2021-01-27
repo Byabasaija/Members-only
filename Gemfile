@@ -54,7 +54,16 @@ group :test do
 end
 
 group :production do
-gem 'pg', '~> 1.2', '>= 1.2.3'
+  gem 'pg', '~> 1.2', '>= 1.2.3'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# rubocop linters
+gem 'rubocop', '~>0.81.0'
+
+# add device
+gem 'devise', '~> 4.7', '>= 4.7.3'
+
+# add bootstrap
+gem 'bootstrap', '~> 4.5', '>= 4.5.3'
